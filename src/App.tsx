@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { BrowserRouter } from "react-router-dom";
 
 import "./App.css";
 
@@ -15,16 +14,14 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <div className="app">
-        <h1>Hello World</h1>
-        <div className="counter-container">
-          <button onClick={decrement}>-</button>
-          <h1>Count: {count}</h1>
-          <button onClick={increment}>+</button>
-        </div>
+    <div className="app">
+      <h1>Hello World</h1>
+      <div className="counter-container">
+        <button onClick={decrement}>-</button>
+        <h1>Count: {count}</h1>
+        <button onClick={increment}>+</button>
       </div>
-    </BrowserRouter>
+    </div>
   );
 }
 
