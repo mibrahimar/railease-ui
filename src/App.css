@@ -5,21 +5,6 @@
   align-items: center;
 }
 
-.counter-container {
-  display: flex;
-  align-items: center;
-}
-
-.counter-container h1 {
-  margin: 0px 20px;
-}
-
-
-.counter-container button {
-  background: rgb(0, 136, 255);
-  color: white;
-  padding: 10px 40px;
-  font-size: 24px;
-  font-weight: bold;
-  border-radius: 4px;
+.app form input {
+  width: 100%;
 }
