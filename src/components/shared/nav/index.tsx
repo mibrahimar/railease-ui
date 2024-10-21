@@ -1,4 +1,4 @@
-import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import {
   Avatar,
   Box,
@@ -13,17 +13,8 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import { TbLogout2 } from "react-icons/tb";
-import { useAuth } from "store";
 
 export function Nav() {
-  const navigate = useNavigate();
-  const { user, removeSession } = useAuth();
-
-  function logout() {
-    removeSession();
-    navigate("/auth/login");
-  }
-
   return (
     <Box padding="3" borderBottom="1px">
       <HStack
@@ -47,7 +38,6 @@ export function Nav() {
         </HStack>
 
         <HStack spacing="10">
-          <Link as={RouterLink} fontWeight="medium" children="Home" to="/" />
           <Link
             as={RouterLink}
             fontWeight="medium"
@@ -64,10 +54,10 @@ export function Nav() {
 
         <Menu placement="top-end">
           <MenuButton>
-            <Avatar size="md" name={user?.username} />
+            <Avatar size="md" name="John Doe" />
           </MenuButton>
           <MenuList>
-            <MenuItem as="a" href="#" onClick={logout}>
+            <MenuItem as="a" href="#">
               <Icon marginRight="2" as={TbLogout2} />
               Logout
             </MenuItem>

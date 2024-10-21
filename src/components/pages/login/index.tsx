@@ -1,4 +1,4 @@
-import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import {
   Box,
   Button,
@@ -13,20 +13,8 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { TbLogin2 } from "react-icons/tb";
-import { useAuth } from "store";
 
 export function LoginPage() {
-  const navigate = useNavigate();
-  const { setSession } = useAuth();
-
-  function login() {
-    setSession({
-      username: "Tony Stark",
-      role: "USER",
-    });
-    navigate("/app");
-  }
-
   return (
     <Box
       background="white"
@@ -54,12 +42,7 @@ export function LoginPage() {
           <FormErrorMessage>Password is required.</FormErrorMessage>
         </FormControl>
 
-        <Button
-          colorScheme="brand"
-          width="full"
-          marginBottom="1"
-          onClick={login}
-        >
+        <Button colorScheme="brand" width="full" marginBottom="1">
           <Icon as={TbLogin2} marginRight="1" />
           Login
         </Button>

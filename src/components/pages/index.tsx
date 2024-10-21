@@ -1,5 +1,4 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { useAuth } from "store";
 import { AppLayout } from "components/layouts/app-layout";
 import { AuthLayout } from "components/layouts/auth-layout";
 import { LoginPage } from "./login";
@@ -7,31 +6,6 @@ import { RegisterPage } from "./register";
 import { SearchPage } from "./search";
 import { BookingHistoryPage } from "./booking-history";
 import { TrainsPage } from "./trains";
-
-const PrivateRoute = ({ children }: React.PropsWithChildren) => {
-  const { user } = useAuth();
-  if (!user) return <Navigate to="/auth/login" />;
-
-  return <>{children}</>;
-};
-
-const AdminRoute = ({ children }: React.PropsWithChildren) => {
-  const { user } = useAuth();
-  if (!user) return <Navigate to="/auth/login" />;
-
-  if (!user.isAdmin) return <Navigate to="/app/search" />;
-
-  return <>{children}</>;
-};
-
-const UserRoute = ({ children }: React.PropsWithChildren) => {
-  const { user } = useAuth();
-  if (!user) return <Navigate to="/auth/login" />;
-
-  if (user.isAdmin) return <Navigate to="/app/trains" />;
-
-  return <>{children}</>;
-};
 
 export default function Pages() {
   return (
@@ -45,41 +19,13 @@ export default function Pages() {
         </Route>
 
         {/* Application */}
-        <Route
-          path="app"
-          element={
-            <PrivateRoute>
-              <AppLayout />
-            </PrivateRoute>
-          }
-        >
+        <Route path="app" element={<AppLayout />}>
           {/* User */}
-          <Route
-            path="search"
-            element={
-              <UserRoute>
-                <SearchPage />
-              </UserRoute>
-            }
-          />
-          <Route
-            path="history"
-            element={
-              <UserRoute>
-                <BookingHistoryPage />
-              </UserRoute>
-            }
-          />
+          <Route path="search" element={<SearchPage />} />
+          <Route path="history" element={<BookingHistoryPage />} />
 
           {/* Admin */}
-          <Route
-            path="trains"
-            element={
-              <AdminRoute>
-                <TrainsPage />
-              </AdminRoute>
-            }
-          />
+          <Route path="trains" element={<TrainsPage />} />
 
           <Route index path="*" element={<Navigate to="search" />} />
         </Route>

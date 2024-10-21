@@ -1,18 +1,7 @@
 import { Center, Heading, HStack, Image, VStack } from "@chakra-ui/react";
-import React, { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { useAuth } from "store";
+import { Outlet } from "react-router-dom";
 
-export function AuthLayout({ children }: React.PropsWithChildren) {
-  const navigate = useNavigate();
-  const { user } = useAuth();
-
-  useEffect(() => {
-    if (user) {
-      navigate("/app");
-    }
-  }, [user]);
-
+export function AuthLayout() {
   return (
     <Center minHeight="100dvh" background="gray.100">
       <VStack>
