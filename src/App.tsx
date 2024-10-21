@@ -1,18 +1,10 @@
-import { BrowserRouter } from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div>
-        <h1
-          style={{
-            textAlign: "center",
-          }}
-        >
-          Hello World
-        </h1>
-      </div>
-    </BrowserRouter>
+    <div className="app">
+      <h1>Hello World</h1>
+    </div>
   );
 }
 
