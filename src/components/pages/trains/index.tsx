@@ -41,7 +41,7 @@ import { TrainsData } from "assets";
 import { useState } from "react";
 import { TbEdit, TbTrash } from "react-icons/tb";
 
-export function TrainsView() {
+export function TrainsPage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [train, setTrain] = useState<any>();
 

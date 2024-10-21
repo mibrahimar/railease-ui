@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { TbLogin2 } from "react-icons/tb";
 
-export function RegisterView() {
+export function RegisterPage() {
   return (
     <Box
       background="white"

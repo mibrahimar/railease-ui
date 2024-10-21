@@ -2,7 +2,7 @@ import { Container, Heading, Text, VStack } from "@chakra-ui/react";
 import { TrainsData } from "assets";
 import { TrainCard } from "components/shared";
 
-export function HistoryView() {
+export function BookingHistoryPage() {
   return (
     <Container maxWidth="4xl" paddingX="0">
       <Heading fontSize="2xl" marginTop="12">

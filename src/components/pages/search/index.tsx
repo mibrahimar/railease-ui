@@ -27,7 +27,7 @@ import { useState } from "react";
 import { TbSearch } from "react-icons/tb";
 import { TrainsData } from "assets";
 
-export function SearchView() {
+export function SearchPage() {
   const [departureDate, setDepartureDate] = useState<Date>();
   const { isOpen, onOpen, onClose } = useDisclosure();
 

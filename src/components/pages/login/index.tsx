@@ -15,7 +15,7 @@ import {
 import { TbLogin2 } from "react-icons/tb";
 import { useAuth } from "store";
 
-export function LoginView() {
+export function LoginPage() {
   const navigate = useNavigate();
   const { setSession } = useAuth();
 

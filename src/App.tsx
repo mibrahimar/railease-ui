@@ -1,7 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
 import { appTheme } from "theme";
-import Views from "components/views";
+import Pages from "components/pages";
 import { AuthProvider } from "store";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <ChakraProvider theme={appTheme}>
         <AuthProvider>
-          <Views />
+          <Pages />
         </AuthProvider>
       </ChakraProvider>
     </BrowserRouter>

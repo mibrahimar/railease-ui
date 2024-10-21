@@ -1,8 +1,12 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { AuthLayout, AppLayout } from "components/layouts";
-import { LoginView, RegisterView } from "./auth";
-import { SearchView, HistoryView, TrainsView } from "./app";
 import { useAuth } from "store";
+import { AppLayout } from "components/layouts/app-layout";
+import { AuthLayout } from "components/layouts/auth-layout";
+import { LoginPage } from "./login";
+import { RegisterPage } from "./register";
+import { SearchPage } from "./search";
+import { BookingHistoryPage } from "./booking-history";
+import { TrainsPage } from "./trains";
 
 const PrivateRoute = ({ children }: React.PropsWithChildren) => {
   const { user } = useAuth();
@@ -29,14 +33,14 @@ const UserRoute = ({ children }: React.PropsWithChildren) => {
   return <>{children}</>;
 };
 
-export default function Views() {
+export default function Pages() {
   return (
     <div>
       <Routes>
         {/* Authentication */}
         <Route path="auth" element={<AuthLayout />}>
-          <Route path="login" element={<LoginView />} />
-          <Route path="register" element={<RegisterView />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
           <Route index path="*" element={<Navigate to="login" />} />
         </Route>
 
@@ -54,7 +58,7 @@ export default function Views() {
             path="search"
             element={
               <UserRoute>
-                <SearchView />
+                <SearchPage />
               </UserRoute>
             }
           />
@@ -62,7 +66,7 @@ export default function Views() {
             path="history"
             element={
               <UserRoute>
-                <HistoryView />
+                <BookingHistoryPage />
               </UserRoute>
             }
           />
@@ -72,7 +76,7 @@ export default function Views() {
             path="trains"
             element={
               <AdminRoute>
-                <TrainsView />
+                <TrainsPage />
               </AdminRoute>
             }
           />
